@@ -22,6 +22,11 @@ This workshop will contain information regarding:
 - Basic Golang syntax knowledge
 - [Golang 1.27 or higher](https://go.dev/doc/install) installed
 
+## Goal
+
+The goal of this workshop is to teach the importance of proper error handling in
+Golang.
+
 ## Exercises
 
 The first batch of exercises will be dealing with the [dishwasher SDK](https://github.com/survivorbat/go-error-workshop-lib).
@@ -33,5 +38,6 @@ A library that has not followed this workshop, but gets better each exercise.
 
 The final exercise involves creating your own errors and testing them
 using testify.
+It does not involve dishwashers.
 
 - [Exercise 4](./exercise-4/README.md)

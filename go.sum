@@ -2,5 +2,9 @@ github.com/stretchr/testify v1.12.1 h1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWD
 github.com/stretchr/testify v1.12.1/go.mod h1:MDEgiDPPsNp5cuIrHPPCyornHKgEVbtFUmoNlxoYthg=
 github.com/survivorbat/go-error-workshop-lib v0.0.0 h1:XDbVWcRRBf/mkCfmKDO/JBIopaSEqZ68WzO+D4xDVTw=
 github.com/survivorbat/go-error-workshop-lib v0.0.0/go.mod h1:ctlm4PUGF5SBoNry4dUjsK4v3k88t6OVH8Fmok1EgOc=
+github.com/survivorbat/go-error-workshop-lib/v2 v2.0.0 h1:mRT82sYGvkGQGpQ+DsVANfLi2hf/R+/9jHiaM1KzNak=
+github.com/survivorbat/go-error-workshop-lib/v2 v2.0.0/go.mod h1:tuQl7QyzYIjzikGxam6pkqhf6vWcuEj7q9QylHNp4Yw=
+github.com/survivorbat/go-error-workshop-lib/v3 v3.0.0 h1:rJbLoZjEsNLRgbEn3TMW5xMVfNDT+26DUnAd3sonKFA=
+github.com/survivorbat/go-error-workshop-lib/v3 v3.0.0/go.mod h1:shNekRMUhkEXA6z7UJFsxNVJhDt8mzDlqMCEBWS+nd0=
 go.yaml.in/yaml/v3 v3.0.5 h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=
 go.yaml.in/yaml/v3 v3.0.5/go.mod h1:HVTZu1O7/Vkt2N+BFy8Zza+lnLsABggaTM2ZpNIGuKg=
