@@ -21,6 +21,7 @@ This workshop will contain information regarding:
 
 - Basic Golang syntax knowledge
 - [Golang 1.27 or higher](https://go.dev/doc/install) installed
+- (optional) `make`, to use the makefile
 
 ## Goal
 
