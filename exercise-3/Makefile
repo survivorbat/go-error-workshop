@@ -11,5 +11,5 @@ run: ## Run the application, alias: r
 	go run ./cmd
 
 t: test
-test: ## Run tests, alias: tr
+test: ## Run tests, alias: t
 	go test ./...

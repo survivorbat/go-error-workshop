@@ -10,7 +10,7 @@ This workshop's goal is to teach you best practices of using errors in Golang.
 
 This workshop will contain information regarding:
 
-- Creating _✨ Sentinel ✨_ errors in Golang
+- _✨ Sentinel ✨_ errors in Golang
 - Error wrapping
 - Error joining
 - Custom error types and how to use them
@@ -25,8 +25,8 @@ This workshop will contain information regarding:
 
 ## Goal
 
-The goal of this workshop is to teach the importance of proper error handling in
-Golang.
+The goal of this workshop is to teach the value of using sentinel errors
+and error types, as well as how to use them in your code.
 
 ## Exercises
 
@@ -37,8 +37,12 @@ A library that has not followed this workshop, but gets better each exercise.
 - [Exercise 2](./exercise-2/README.md)
 - [Exercise 3](./exercise-3/README.md)
 
-The final exercise involves creating your own errors and testing them
-using testify.
+The fourth exercise involves returning errors in a library.
 It does not involve dishwashers.
 
 - [Exercise 4](./exercise-4/README.md)
+
+The final exercise involves asserting errors using `stretchr/testify`.
+It also does not involve dishwashers.
+
+- [Exercise 5](./exercise-5/README.md)
