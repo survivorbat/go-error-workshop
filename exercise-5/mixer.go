@@ -1,8 +1,14 @@
 package mixer
 
 import (
+	"errors"
 	"fmt"
 	"time"
+)
+
+var (
+	ErrTooManyIngredients = errors.New("too many ingredients")
+	ErrMixerBroken        = errors.New("mixed is broken")
 )
 
 // Mix will take the ingredients and mix them together into a smoothie. Will return
@@ -10,7 +16,7 @@ import (
 // in this package.
 func Mix(ingredients ...Ingredient) error {
 	if len(ingredients) > 5 {
-		return fmt.Errorf("you put %d ingredients into the mixer, maximum is 5: %w", len(ingredients), ErrTooManyIngredients)
+		return fmt.Errorf("you put %d ingredients into the mixer, maximum is 5: %w", len(ingredients), ErrMixerBroken)
 	}
 
 	invalids := make([]Ingredient, 0, len(ingredients))
@@ -21,10 +27,22 @@ func Mix(ingredients ...Ingredient) error {
 	}
 
 	if len(invalids) > 0 {
-		return &InvalidIngredientError{Invalids: invalids}
+		return &InvalidIngredientError{Invalids: validIngredients}
 	}
 
+	// Mixing...
 	time.Sleep(20 * time.Millisecond)
 
 	return nil
+}
+
+// InvalidIngredientError is returned if invalid ingredients were put into the mixer
+type InvalidIngredientError struct {
+	// Invalids is the list of all invalid ingredients that were provided
+	Invalids []Ingredient
+}
+
+// Error implements the error interface and lists the invalid ingredients
+func (i *InvalidIngredientError) Error() string {
+	return fmt.Sprintf("invalid ingredients: %v", i.Invalids)
 }

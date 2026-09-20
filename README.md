@@ -43,6 +43,5 @@ It does not involve dishwashers.
 - [Exercise 4](./exercise-4/README.md)
 
 The final exercise involves asserting errors using `stretchr/testify`.
-It also does not involve dishwashers.
 
 - [Exercise 5](./exercise-5/README.md)
