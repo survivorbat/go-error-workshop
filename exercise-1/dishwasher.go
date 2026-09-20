@@ -17,8 +17,16 @@ func Run(program string, intensity int) string {
 	return "Program complete!"
 }
 
-// ❗ The code below is yours to implement.
-
+// explainError translates the error to the output
+//
+// ❗ Test requirements:
+//
+// | error                                                           | Expected output
+// | intensity must be a positive number                             | intensity must be a positive number
+// | intensity 5 is too great, the maximum is 4                      | intensity 5 is invalid, it must be between 1 and 4
+// | intensity 20 is too great, the maximum is 4                     | intensity 20 is invalid, it must be between 1 and 4
+// | program super does not exist, allowed programs are: fast, basic | The dishwasher does not know plan super, valid programs are basic or fast
+// | program eco does not exist, allowed programs are: fast, basic   | The dishwasher does not know plan eco, valid programs are basic or fast
 func explainError(err error) string {
-	return "implement me :)"
+	return "an error happened 🤷"
 }

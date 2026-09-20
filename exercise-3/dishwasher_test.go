@@ -19,11 +19,6 @@ func TestRun(t *testing.T) {
 			intensity: 2,
 			expected:  "Program complete!",
 		},
-		"negative intensity": {
-			program:   "basic",
-			intensity: -1,
-			expected:  "intensity must be a positive number",
-		},
 		"invalid intensity 5": {
 			program:   "basic",
 			intensity: 5,

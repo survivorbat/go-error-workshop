@@ -28,5 +28,4 @@ Get the tests for the `Run` function working.
 
 - Check out the [library's source code](https://github.com/survivorbat/go-error-workshop-lib/tree/main/dishwasher.go)
   to understand what errors are returned from it.
-- Functions like `strings.Contains`, `strings.TrimPrefix` and `strings.TrimSuffix`
-  may be useful
+- Functions like `strings.Contains` and `strings.Split` may be useful
