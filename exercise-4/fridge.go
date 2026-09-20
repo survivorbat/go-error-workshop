@@ -41,14 +41,14 @@ func (f *FridgeClient) Configure(cfg *Config) error {
 		return nil
 	}
 
-	defer res.Body.Close()
+	defer func() { _ = res.Body.Close() }()
 
 	// Success! Nothing to do here
 	if res.StatusCode == http.StatusOK {
 		return nil
 	}
 
-	resBody, _ := io.ReadAll(res.Body)
+	resBody, _ := io.ReadAll(res.Body) // Suppressing this for simplicity
 
 	var cfgErr *ConfigError
 	err = json.Unmarshal(resBody, &cfgErr)
