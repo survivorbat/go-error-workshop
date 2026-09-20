@@ -53,7 +53,7 @@ func TestRun(t *testing.T) {
 			actual := Run(testData.program, testData.intensity)
 
 			// Assert
-			assert.Equal(t, actual, testData.expected)
+			assert.Equal(t, testData.expected, actual)
 		})
 	}
 }

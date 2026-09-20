@@ -21,7 +21,6 @@ Get the tests for the `Run` function working.
 1. Run the program using `make run`, follow the prompts and see what happens
 1. Run the tests using `make test`, they are meant to fail
 1. Find the `RunProgram` function in the [dishwasher.go](./dishwasher.go)
-1. Find the unit tests for the `RunProgram` function in the [dishwasher_test.go](./dishwasher_test.go)
 1. Finish the implementation of `explainError` to make the unit tests succeed.
 
 ## Tips

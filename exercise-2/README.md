@@ -14,9 +14,8 @@ Take your implementation from exercise 1 and adjust it to use these new errors.
 
 1. Run the tests using `make test`, they are meant to fail (again)
 1. Find the `RunProgram` function in the [dishwasher.go](./dishwasher.go)
-1. Find the unit tests for the `RunProgram` function in the [dishwasher_test.go](./dishwasher_test.go)
 1. Take your implementation from exercise 1 and adjust it in exercise 2 to use the
-   new sentinel errors to simplify the implementation.
+   new sentinel errors
 
 ## Tips
 

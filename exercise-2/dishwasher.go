@@ -1,8 +1,6 @@
 package dishwasher
 
 import (
-	"log/slog"
-
 	dishwashsdk "github.com/survivorbat/go-error-workshop-lib/v2"
 )
 
@@ -10,7 +8,6 @@ import (
 func Run(program string, intensity int) string {
 	err := dishwashsdk.RunProgram(program, intensity)
 	if err != nil {
-		slog.Error("Call to dishwashsdk failed", "error", err)
 		return explainError(err)
 	}
 
