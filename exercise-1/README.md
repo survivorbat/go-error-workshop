@@ -6,7 +6,7 @@ to instrument it.
 Luckily for you, the dishwasher has its own SDK available, allowing you contact
 its API by calling methods on a Golang library.
 
-You can find the [_Survivorbat™ WiFi-enabled Dishwasher_ SDK here](https://github.com/survivorbat/go-error-workshop-lib/dishwasher.go).
+You can find the [_Survivorbat™ WiFi-enabled Dishwasher_ SDK here](https://github.com/survivorbat/go-error-workshop-lib/tree/maindishwasher.go).
 
 You've been working hard on your first Proof-of-Concept, and the only step
 left for you is to properly display errors in your application.
@@ -26,7 +26,7 @@ Get the tests for the `Run` function working.
 
 ## Tips
 
-- Check out the [library's source code](https://github.com/survivorbat/go-error-workshop-lib/dishwasher.go)
+- Check out the [library's source code](https://github.com/survivorbat/go-error-workshop-lib/tree/main/dishwasher.go)
   to understand what errors are returned from it.
 - Functions like `strings.Contains`, `strings.TrimPrefix` and `strings.TrimSuffix`
   may be useful

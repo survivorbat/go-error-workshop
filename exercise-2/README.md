@@ -4,7 +4,7 @@ The _Survivorbat™ WiFi-enabled Dishwasher_ SDK you're using for your
 _Survivorbat™ WiFi-enabled Dishwasher_ got a major upgrade.
 It now features sentinel errors and error wrapping.
 
-You can find the [_Survivorbat™ WiFi-enabled Dishwasher_ V2 SDK here](https://github.com/survivorbat/go-error-workshop-lib/v2/dishwasher.go).
+You can find the [_Survivorbat™ WiFi-enabled Dishwasher_ V2 SDK here](https://github.com/survivorbat/go-error-workshop-lib/tree/main/v2/dishwasher.go).
 
 ## Goal
 
@@ -20,6 +20,6 @@ Take your implementation from exercise 1 and adjust it to use these new errors.
 
 ## Tips
 
-- Check out the [library's source code](https://github.com/survivorbat/go-error-workshop-lib/v2/dishwasher.go)
+- Check out the [library's source code](https://github.com/survivorbat/go-error-workshop-lib/tree/main/v2/dishwasher.go)
   to understand what errors are returned from it.
 - Functions like `errors.Is`, `strings.TrimPrefix` and `strings.TrimSuffix` may be useful

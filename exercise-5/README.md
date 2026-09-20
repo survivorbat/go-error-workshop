@@ -16,7 +16,7 @@ Implement the `explainError` method using the new error types.
 
 ## Tips
 
-- Check out the [library's source code](https://github.com/survivorbat/go-error-workshop-lib/v3/dishwasher.go)
+- Check out the [library's source code](https://github.com/survivorbat/go-error-workshop-lib/tree/main/v3/dishwasher.go)
   to understand what errors are returned from it.
 - Functions like `errors.AsType` may be useful
 - `errors.As` is the older, non-generic version of `errors.AsType`
