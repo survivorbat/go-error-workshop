@@ -55,11 +55,11 @@ func TestFridgeClient_Configure_ReturnsErrorOnInvalidBaseURL(t *testing.T) {
 			err := client.Configure(cfg)
 
 			// Assert
-			require.ErrorContains(t, err, "failed to build for URL "+host)
+			require.ErrorContains(t, err, "failed to build request for URL "+host)
 
 			var actual *url.Error
 			require.ErrorAs(t, err, &actual)
-			assert.Equal(t, host, actual.URL)
+			assert.Equal(t, host+"/api/config", actual.URL)
 		})
 	}
 }
