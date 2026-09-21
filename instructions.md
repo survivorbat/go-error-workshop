@@ -343,8 +343,61 @@ for any string comparisons.
 
 ### Is and Unwrap
 
+Custom error don't work with `errors.Is` directly, but you can implement the `Is`
+method on it to decide your own equality.
+
+```go
+package users
+
+type UserNotFoundError struct {
+  Name string
+}
+
+func (u *UserNotFoundError) Error() string {
+  return "User " + u.Name + " not found"
+}
+
+func (u *UserNotFoundError) Is(err error) bool {
+  userNotFoundErr, isType := errors.AsType[*UserNotFoundError](err)
+  if !isType {
+    return false
+  }
+
+  return u.Name == userNotFoundErr.Name
+}
+```
+
+For unwrapping, the `Unwrap` method can be implemented.
+
+```go
+package users
+
+type UserNotFoundError struct {
+  Name string
+
+  InnerError error
+}
+
+func (u *UserNotFoundError) Error() string {
+  return "User " + u.Name + " not found"
+}
+
+func (u *UserNotFoundError) Unwrap() error {
+  return u.InnerError
+}
+```
+
+Which allows `errors.Is` and `errors.AsType` to look for wrapped errors in your
+custom error type.
+
 ### Exercises
 
 Now please complete the following exercises.
 
 - [Exercise 3](./exercise-3)
+- [Exercise 4](./exercise-4)
+
+## Testing errors
+
+The [stretchr/testify](https://github.com/stretchr/testify) library has many assertion
+functions specifically for errors.
