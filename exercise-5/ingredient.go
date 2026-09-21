@@ -1,8 +1,8 @@
-package mixer
+package blender
 
 import "slices"
 
-// Ingredient can be put inside of the mixer
+// Ingredient can be put inside of the blender
 type Ingredient string
 
 const (

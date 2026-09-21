@@ -6,11 +6,11 @@ import (
 	"log/slog"
 	"os"
 
-	dishwasher "github.com/survivorbat/go-error-workshop/exercise-1"
+	dishwasher "github.com/survivorbat/go-error-workshop/exercise-2"
 )
 
-// Hey there! Nice to find you here. This code isn't part of the workshop, but feel
-// free to have a look. The main/run pattern see here is called the run pattern:
+// 👋 Hey there! Nice to find you here. This code isn't part of the workshop, but feel
+// free to have a look. The main/run functions here exemplify the run pattern:
 //
 // https://dev.to/mokiat/go-main-run-pattern-1bin
 //
@@ -31,21 +31,21 @@ func main() {
 func run(stdin io.Reader, stdout io.Writer) error {
 	_, _ = fmt.Fprintln(stdout, "What dishwasher program do you want to run?")
 
-	var programName string
-	_, err := fmt.Fscan(stdin, &programName)
+	var inputProgram string
+	_, err := fmt.Fscan(stdin, &inputProgram)
 	if err != nil {
 		return fmt.Errorf("failed to read program name: %w", err)
 	}
 
 	_, _ = fmt.Fprintln(stdout, "At what intensity? (number only)")
 
-	var intensity int
-	_, err = fmt.Fscan(stdin, &intensity)
+	var inputIntensity int
+	_, err = fmt.Fscan(stdin, &inputIntensity)
 	if err != nil {
 		return fmt.Errorf("failed to read intensity: %w", err)
 	}
 
-	_, _ = fmt.Fprintln(stdout, dishwasher.Run(programName, intensity))
+	_, _ = fmt.Fprintln(stdout, dishwasher.Run(inputProgram, inputIntensity))
 
 	return nil
 }

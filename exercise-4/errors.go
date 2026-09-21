@@ -13,8 +13,8 @@ var (
 // ConfigError is returned from the API if the provided config does not make sense
 // for the fridge to be configured with.
 //
-// Test requirements:
-// - Must be a nerror
+// ❗ Test requirements:
+// - Must be an error
 // - Must errors.As to ConfigError
 type ConfigError struct {
 	Message string `json:"message"`
@@ -27,7 +27,7 @@ type ConfigError struct {
 // ResponseError is returned if we failed to parse the response from the API
 // and want to wrap it with additional information.
 //
-// Test requirements:
+// ❗ Test requirements:
 // - Must be an error
 // - Must errors.Is to ErrAPIError
 // - Must errors.As to ActualErr
@@ -42,6 +42,6 @@ func (c *ResponseError) Error() string {
 	return "Failed to read API response body"
 }
 
-/////////////////////////////////////
-// ❗ Something is missing here... //
-/////////////////////////////////////
+////////////////////////////////////////
+// ❗ Something(s) is missing here... //
+////////////////////////////////////////
