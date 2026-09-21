@@ -8,11 +8,11 @@ You could automate that too!
 You've worked hard on your implementation and are almost done, but then you realise
 there are a lot of bugs in the error handling in your code.
 But how is that possible?
-You've written unit-tests meant to catch those bugs.
+You've written unit tests meant to catch those bugs.
 
 ## Goal
 
-Improve the assertions in the unit-tests to make sure the correct error is asserted.
+Improve the assertions in the unit tests to make sure the correct error is asserted.
 
 **_You're not meant to fix the bugs 🪲_**
 
@@ -22,8 +22,8 @@ Improve the assertions in the unit-tests to make sure the correct error is asser
    the **3** bugs
 1. Find the unit tests for the `Blend` function in the [blender_test.go](./blender_test.go)
    They are not catching the bugs in our code. Spot the use of `assert.Error`.
-1. Run the tests using `make test`, the tests are testing the output of
-   the tests and confirm that your tests are not catching the bugs.
+1. Run the tests using `make test`, meta-tests are asserting whether
+   the bugs are caught in the unit tests.
 1. Update the assertions performed in [blender_test.go](./blender_test.go) to ensure
    the correct errors are returned from the functions.
 

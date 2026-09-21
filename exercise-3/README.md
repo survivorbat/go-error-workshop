@@ -13,8 +13,7 @@ Implement the `explainError` method using the new error types.
 
 1. Run the tests using `make test`, they are meant to fail (again)
 1. Find the `RunProgram` function in the [dishwasher.go](./dishwasher.go)
-1. Take your implementation from exercise 1 and adjust it in exercise 2 to use the
-   new sentinel errors to simplify the implementation.
+1. Implement `explainError`
 
 ## Tips
 

@@ -31,7 +31,7 @@ Implement the `Configure` method on the `FridgeClient` so that all tests pass.
 
 - What makes an error an error? Check out the stdlib's `error` type if you're stuck
 - Check out the [stdlib's errors package documentation](https://pkg.go.dev/errors)
-  to learn what other methods can be implemented to change error behaviour
+  to learn what other methods can be implemented to change error behavior
 
 ## 2. Implementing the errors from errors
 

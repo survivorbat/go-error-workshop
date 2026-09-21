@@ -3,8 +3,8 @@
 You bought a new _Survivorbat™ WiFi-enabled Dishwasher_, congrats!
 You want to run it from your computer, and decided to write a custom Go program
 to instrument it.
-Luckily for you, the dishwasher has its own SDK available, allowing you contact
-its API by calling methods on a Golang library.
+Luckily for you, the dishwasher has its own SDK available, allowing you to contact
+its API by calling methods on a Go library.
 
 You can find the [_Survivorbat™ WiFi-enabled Dishwasher_ SDK here](https://github.com/survivorbat/go-error-workshop-lib/tree/main/dishwasher.go).
 
