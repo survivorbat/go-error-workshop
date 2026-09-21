@@ -1,4 +1,4 @@
-# Go Error Workshop
+# 💡 Go Error Workshop
 
 Hey you! Ever worked with errors in Go? Extremely high chance you have.
 But how do they work? When to use `errors.New` or `fmt.Errorf`, how to test if
@@ -30,6 +30,10 @@ and error types, as well as how to use them in your code.
 
 All tests in the repository currently fail.
 At the end of the workshop, they should succeed.
+
+## Instructions
+
+The instructions for the workshop can (in the future) be found in [instructions.md](./instructions.md).
 
 ## Exercises
 
