@@ -22,7 +22,7 @@ Improve the assertions in the unit tests to make sure the correct error is asser
    the **3** bugs
 1. Find the unit tests for the `Blend` function in the [blender_test.go](./blender_test.go)
    They are not catching the bugs in our code. Spot the use of `assert.Error`.
-1. Run the tests using `make test`, meta-tests are asserting whether
+1. Run the tests using `go test ./...`, meta-tests are asserting whether
    the bugs are caught in the unit tests.
 1. Update the assertions performed in [blender_test.go](./blender_test.go) to ensure
    the correct errors are returned from the functions.
@@ -34,7 +34,7 @@ Improve the assertions in the unit tests to make sure the correct error is asser
   - `assert.ErrorAs`
   - `assert.ErrorContains`
 - The tests in [blender_test.go](./blender_test.go) may not show up as tests in
-  your IDE. This is intentional. Please run the entire package or use `make test`
+  your IDE. This is intentional. Please run the entire package or use `go test ./...`
   instead.
 - The `testify/require` package should not be used in this exercise, as that
   would break the test runners.

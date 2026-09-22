@@ -31,24 +31,29 @@ and error types, as well as how to use them in your code.
 All tests in the repository currently fail.
 At the end of the workshop, they should succeed.
 
-## Instructions
+## Getting started
 
-The instructions for the workshop can (in the future) be found in [instructions.md](./instructions.md).
+The instructions and walkthrough for this workshop can be found in [instructions.md](./instructions.md).
+Happy coding 👍
 
 ## Exercises
 
 The first batch of exercises will be dealing with the [dishwasher SDK](https://github.com/survivorbat/go-error-workshop-lib).
 A library that has not followed this workshop, but gets better each exercise.
 
-- [Exercise 1](./exercise-1/README.md)
-- [Exercise 2](./exercise-2/README.md)
-- [Exercise 3](./exercise-3/README.md)
+- [Exercise 1 (10 mins)](./exercise-1/README.md)
+- [Exercise 2 (5 mins)](./exercise-2/README.md)
+- [Exercise 3 (10 mins)](./exercise-3/README.md)
 
 The fourth exercise involves returning errors in a library.
 It does not involve dishwashers.
 
-- [Exercise 4](./exercise-4/README.md)
+- [Exercise 4 (30 mins)](./exercise-4/README.md)
 
 The final exercise involves asserting errors using `stretchr/testify`.
 
-- [Exercise 5](./exercise-5/README.md)
+- [Exercise 5 (10 mins)](./exercise-5/README.md)
+
+## Solutions
+
+The solutions for the exercises can be found in the solutions branch.

@@ -9,7 +9,7 @@ import (
 // ⚠️ Do not touch this code, fixing the bugs is not part of the exercise
 
 var (
-	ErrNoIngedients       = errors.New("no ingredients were provided")
+	ErrNoIngredients      = errors.New("no ingredients were provided")
 	ErrTooManyIngredients = errors.New("too many ingredients")
 	ErrBlenderIsOnFire    = errors.New("blender is on fire")
 )

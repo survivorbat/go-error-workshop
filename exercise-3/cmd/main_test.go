@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// As section is not part of the workshop, and the workshop is about the error handling
+// This section is not part of the workshop, and the workshop is about the error handling
 // of the program, no tests are present to test the error output. This only serves
 // as an example on how the program could be tested with the run pattern.
 

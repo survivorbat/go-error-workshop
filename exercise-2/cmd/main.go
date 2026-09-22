@@ -25,7 +25,7 @@ func main() {
 	}
 }
 
-// run acts as a main() with an error return and global steam inputs. This allows us
+// run acts as a main() with an error return and global stream inputs. This allows us
 // to test the program almost in its entirety in main_test.go. All interactions with
 // stdin and stdout are abstracted away, allowing us to input buffers from a test.
 func run(stdin io.Reader, stdout io.Writer) error {

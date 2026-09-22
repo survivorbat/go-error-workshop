@@ -1,7 +1,12 @@
 # 💡 Instructions
 
 These instructions guide you through the exercises and teach you the ins
-and outs of errors in Golang.
+and outs of errors in Go.
+Every paragraph has its own exercise(s) attached to allow you to put
+the knowledge into practice.
+
+The code snippets serve as examples, but aren't intended to be copy-pasted directly.
+For working code, please refer to the exercises.
 
 ## Error basics
 
@@ -13,17 +18,18 @@ Take the following function.
 package users
 
 import (
+  "fmt"
   "errors"
   "strings"
 )
 
 func CreateUser(name string) error {
   if name == "" {
-    return errors.New("name can not be empty")
+    return errors.New("name cannot be empty")
   }
 
   if strings.Contains(name, "root") {
-    return fmt.Errorf("name %s can not contain root", name)
+    return fmt.Errorf("name %s cannot contain root", name)
   }
 
   // [...]
@@ -38,45 +44,54 @@ To check what error was returned, a caller has to read the `.Error()` message.
 ```go
 package main
 
-func main() {
-  name := roots
+import (
+  "fmt"
+  "strings"
 
-  err := users.CreateUser("roots")
+  "my-module/users"
+)
+
+func main() {
+  name := "roots"
+
+  err := users.CreateUser(name)
   if err != nil {
     msg := err.Error()
 
-    if msg == "name can not be empty" {
+    if msg == "name cannot be empty" {
       fmt.Println("Please ensure a name is set")
     }
 
-    if strings.Contains(msg, "can not contain root") {
-      fmt.Println("Due to security reasons, your name can not contain the word root")
+    if strings.Contains(msg, "cannot contain root") {
+      fmt.Println("Due to security reasons, your name cannot contain the word root")
     }
   }
 }
 ```
 
-These string comparisons the only way to do this.
+These string comparisons are the only way to accomplish this.
 It is not possible for the caller to compare `err` to another error object.
 
 ```go
-err := uses.CreateUser()
+err := users.CreateUser(name)
 
 // Does not work
-err == errors.New("name can not be empty")
+err == errors.New("name cannot be empty")
 
 // Does not work
-errors.Is(err, errors.New("name can not be empty"))
+errors.Is(err, errors.New("name cannot be empty"))
 ```
 
 That's because `errors.New` and `fmt.Errorf` don't create strings, they create
-pointers to new error objects.
+distinct error values.
+Under the hood, an unexported `*errorString` is returned, and the pointers
+are not equal when compared against each other.
 
 ### Exercises
 
 Now please complete the following exercises.
 
-- [Exercise 1](./exercise-1)
+- [Exercise 1 (10 mins)](./exercise-1)
 
 ## Improving errors
 
@@ -98,8 +113,8 @@ import (
   "strings"
 )
 
-var ErrNameEmpty = errors.New("name can not be empty")
-var ErrNoRoot = errors.New("name can not contain root")
+var ErrNameEmpty = errors.New("name cannot be empty")
+var ErrRootNotAllowed = errors.New("name cannot contain root")
 
 func CreateUser(name string) error {
   if name == "" {
@@ -107,7 +122,7 @@ func CreateUser(name string) error {
   }
 
   if strings.Contains(name, "root") {
-    return ErrNoRoot
+    return ErrRootNotAllowed
   }
 
   // [...]
@@ -122,17 +137,22 @@ The following comparisons are now possible.
 ```go
 package main
 
+import (
+  "fmt"
+  "errors"
+  "my-module/users"
+)
 func main() {
-  name := roots
+  name := "roots"
 
-  err := users.CreateUser("roots")
+  err := users.CreateUser(name)
   if err != nil {
     if errors.Is(err, users.ErrNameEmpty) {
       fmt.Println("Please ensure a name is set")
     }
 
-    if errors.Is(err, users.ErrNoRoot)  {
-      fmt.Println("Due to security reasons, your name can not contain the word root")
+    if errors.Is(err, users.ErrRootNotAllowed)  {
+      fmt.Println("Due to security reasons, your name cannot contain the word root")
     }
   }
 }
@@ -149,21 +169,21 @@ through something called error wrapping.
 
 ```go
 if strings.Contains(name, "root") {
-  return fmt.Errorf("%s contains root: %w", ErrNoRoot)
+  return fmt.Errorf("%s contains root: %w", name, ErrRootNotAllowed)
 }
 ```
 
 This will expand the `.Error()` output to the following.
 
 ```text
-roots contains root: name can not contain root`.
+roots contains root: name cannot contain root
 ```
 
 This is immensely useful when debugging a large codebase.
 Imagine the following code.
 
 ```go
-func createUser(name string) error {
+func CreateUser(name string) error {
   err := createDBUser(name)
   if err != nil {
     return err
@@ -194,7 +214,7 @@ What table doesn't exist?
 With error wrapping, more information can be added to this message.
 
 ```go
-func createUser(name string) error {
+func CreateUser(name string) error {
   err := createDBUser(name)
   if err != nil {
     return fmt.Errorf("failed to create user %s: %w", name, err)
@@ -226,6 +246,10 @@ errors while searching for an error in the tree.
 ```go
 package main
 
+import (
+  "fmt"
+  "errors"
+)
 
 func main() {
   a := errors.New("A")
@@ -285,7 +309,7 @@ having to import the library's error in other packages.
 
 Now please complete the following exercises.
 
-- [Exercise 2](./exercise-2)
+- [Exercise 2 (5 mins)](./exercise-2)
 
 ## Typing errors
 
@@ -323,6 +347,13 @@ A caller would then extract the error using the `errors.AsType` method.
 ```go
 package main
 
+import (
+  "fmt"
+  "errors"
+
+  "my-module/users"
+)
+
 func main () {
   err := users.FindUser("Joey")
 
@@ -343,11 +374,13 @@ for any string comparisons.
 
 ### Is and Unwrap
 
-Custom error don't work with `errors.Is` directly, but you can implement the `Is`
+Custom errors don't work with `errors.Is` directly, but you can implement the `Is`
 method on it to decide your own equality.
 
 ```go
 package users
+
+import "errors"
 
 type UserNotFoundError struct {
   Name string
@@ -394,10 +427,131 @@ custom error type.
 
 Now please complete the following exercises.
 
-- [Exercise 3](./exercise-3)
-- [Exercise 4](./exercise-4)
+- [Exercise 3 (10 mins)](./exercise-3)
+- [Exercise 4 (30 mins)](./exercise-4)
 
 ## Testing errors
 
+### Asserting sentinel errors
+
 The [stretchr/testify](https://github.com/stretchr/testify) library has many assertion
-functions specifically for errors.
+functions available, specifically for errors.
+Take for example the following.
+
+```go
+package users
+
+import (
+  "testing"
+
+  "github.com/stretchr/testify/assert"
+)
+
+func TestCreateUser_IsAllowedWithANormalName(t *testing.T) {
+  t.Parallel()
+  // Arrange
+  name := "survivorbat"
+
+  // Act
+  err := CreateUser(name)
+
+  // Assert
+  assert.NoError(t, err)
+}
+
+func TestCreateUser_ReturnsErrorOnRootName(t *testing.T) {
+  t.Parallel()
+  // Arrange
+  name := "The-root-of-the-problem"
+
+  // Act
+  err := CreateUser(name)
+
+  // Assert
+  assert.Error(t, err) // ❌ Weak assertion
+}
+```
+
+This function checks whether no error was returned on a "normal" username, and
+an error occurred if the caller tries to create a root-like user.
+Except, it doesn't catch a bug that was accidentally introduced in the `CreateUser` function.
+
+```go
+package users
+
+import (
+  "fmt"
+  "strings"
+)
+
+func CreateUser(name string) error {
+  if name == "" {
+    return ErrRootNotAllowed // 🪲 BUG
+  }
+
+  if strings.Contains(name, "root") {
+    return fmt.Errorf("%s contains admin: %w", name, ErrNameEmpty) // 🪲 BUG
+  }
+
+  // [...]
+
+  return nil
+}
+```
+
+In this scenario, the tests don't catch that:
+
+- The wrong sentinel error is returned
+- The message mentions the wrong username
+
+This test could be made more robust by using more specific error assertions.
+
+```go
+// Asserts the actual error and its message
+assert.ErrorIs(t, err, ErrNameEmpty)
+assert.ErrorContains(t, err, "contains root")
+```
+
+### Asserting error types
+
+Like `assert.ErrorIs`, there is also an `assert.ErrorAs` assertion available.
+
+```go
+package users
+
+import (
+  "testing"
+
+  "github.com/stretchr/testify/assert"
+  "github.com/stretchr/testify/require"
+)
+
+func TestFindUser_ReturnsErrorOnNotFound(t *testing.T) {
+  t.Parallel()
+  // Arrange
+  name := "survivorbat"
+
+  // Act
+  err := FindUser(name)
+
+  // Assert
+  var actualErr *UserNotFoundError
+  require.ErrorAs(t, err, &actualErr)
+
+  assert.Equal(t, name, actualErr.Name)
+}
+```
+
+Notice the use of the `require` package here.
+This ensures that the test exits if `err` is not a `*UserNotFoundError`, otherwise
+the `actualErr.Name` would cause a nil pointer panic.
+
+### Exercises
+
+Now please complete the following exercises.
+
+- [Exercise 5 (10 mins)](./exercise-5)
+
+## Conclusion
+
+There is more to errors than a simple call to `errors.New`.

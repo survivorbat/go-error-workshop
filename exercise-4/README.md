@@ -24,7 +24,7 @@ Implement the `Configure` method on the `FridgeClient` so that all tests pass.
    work on these in a moment.
 1. Find the library's errors in [errors.go](./errors.go)
 1. Find the tests for these errors in [errors_test.go](./errors_test.go)
-1. Run `make test.errors`, these should fail
+1. Run `go test ./... -run TestResponseError`, these should fail
 1. Add the necessary code to the errors to get the tests to succeed
 
 ### Tips
@@ -39,7 +39,7 @@ Implement the `Configure` method on the `FridgeClient` so that all tests pass.
 
 1. Take another look at the `Configure` method in [fridge.go](./fridge.go).
    Some of the test requirements may look more familiar now.
-1. Run `make test.all`, these should fail
+1. Run `go test ./...`, these should fail
 1. Implement the error returns according to the specified requirements
 
 ### Tips

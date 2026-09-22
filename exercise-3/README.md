@@ -11,8 +11,8 @@ Implement the `explainError` method using the new error types.
 
 ## Steps
 
-1. Run the tests using `make test`, they are meant to fail (again)
-1. Find the `RunProgram` function in the [dishwasher.go](./dishwasher.go)
+1. Run the tests using `go test ./...`, they are meant to fail (again)
+1. Find the `Run` function in the [dishwasher.go](./dishwasher.go)
 1. Implement `explainError`
 
 ## Tips
