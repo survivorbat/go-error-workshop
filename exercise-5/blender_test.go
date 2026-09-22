@@ -34,7 +34,7 @@ func BlendReturnsErrorOnNoIngredients(t testingT) {
 	err := Blend(ingredients...)
 
 	// Assert
-	assert.Error(t, err)
+	assert.ErrorIs(t, err, ErrNoIngredients)
 }
 
 // ❗ Test requirements:
@@ -51,7 +51,8 @@ func BlendReturnsErrorOnTooManyIngredients(t testingT) {
 	err := Blend(ingredients...)
 
 	// Assert
-	assert.Error(t, err)
+	assert.ErrorIs(t, err, ErrTooManyIngredients)
+	assert.ErrorContains(t, err, "6 ingredients given, maximum is 5")
 }
 
 // ❗ Test requirements:
@@ -68,5 +69,11 @@ func BlendReturnsErrorOnInvalidIngredients(t testingT) {
 	err := Blend(ingredients...)
 
 	// Assert
-	assert.Error(t, err)
+	var actualErr *InvalidIngredientsError
+	assert.ErrorAs(t, err, &actualErr)
+
+	expected := &InvalidIngredientsError{
+		Invalid: ingredients,
+	}
+	assert.Equal(t, expected, actualErr)
 }

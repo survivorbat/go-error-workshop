@@ -1,6 +1,9 @@
 package dishwasher
 
 import (
+	"errors"
+	"fmt"
+
 	dishwashsdk "github.com/survivorbat/go-error-workshop-lib/v3"
 )
 
@@ -24,5 +27,15 @@ func Run(program string, intensity int) string {
 // | ProgramError   | The dishwasher does not know plan super, valid programs are basic or fast
 // | ProgramError   | The dishwasher does not know plan eco, valid programs are basic or fast
 func explainError(err error) string {
-	return "an error happened 🤷"
+	intensityErr, ok := errors.AsType[*dishwashsdk.IntensityError](err)
+	if ok {
+		return fmt.Sprintf("Intensity %d is invalid, it must be between 1 and %d", intensityErr.Value, intensityErr.Maximum)
+	}
+
+	programErr, ok := errors.AsType[*dishwashsdk.ProgramError](err)
+	if ok {
+		return fmt.Sprintf("The dishwasher does not know plan %s, valid programs are basic or fast", programErr.Value)
+	}
+
+	panic("unknown error")
 }

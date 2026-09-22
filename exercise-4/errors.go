@@ -20,6 +20,10 @@ type ConfigError struct {
 	Message string `json:"message"`
 }
 
+func (c *ConfigError) Error() string {
+	return c.Message
+}
+
 /////////////////////////////////////
 // ❗ Something is missing here... //
 /////////////////////////////////////
@@ -45,3 +49,11 @@ func (c *ResponseError) Error() string {
 ////////////////////////////////////////
 // ❗ Something(s) is missing here... //
 ////////////////////////////////////////
+
+func (r *ResponseError) Unwrap() error {
+	return r.ActualErr
+}
+
+func (r *ResponseError) Is(err error) bool {
+	return errors.Is(err, ErrAPIError)
+}
