@@ -19,8 +19,8 @@ func Run(program string, intensity int) string {
 // ❗ Test requirements:
 //
 // | error          | Expected output
-// | IntensityError | intensity 5 is invalid, it must be between 1 and 4
-// | IntensityError | intensity 20 is invalid, it must be between 1 and 4
+// | IntensityError | Intensity 5 is invalid, it must be between 1 and 4
+// | IntensityError | Intensity 20 is invalid, it must be between 1 and 4
 // | ProgramError   | The dishwasher does not know plan super, valid programs are basic or fast
 // | ProgramError   | The dishwasher does not know plan eco, valid programs are basic or fast
 func explainError(err error) string {

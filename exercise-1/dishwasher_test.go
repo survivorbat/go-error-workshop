@@ -22,17 +22,17 @@ func TestRun(t *testing.T) {
 		"negative intensity": {
 			program:   "basic",
 			intensity: -1,
-			expected:  "intensity must be a positive number",
+			expected:  "Intensity must be a positive number",
 		},
 		"invalid intensity 5": {
 			program:   "basic",
 			intensity: 5,
-			expected:  "intensity 5 is invalid, it must be between 1 and 4",
+			expected:  "Intensity 5 is invalid, it must be between 1 and 4",
 		},
 		"invalid intensity 20": {
 			program:   "basic",
 			intensity: 20,
-			expected:  "intensity 20 is invalid, it must be between 1 and 4",
+			expected:  "Intensity 20 is invalid, it must be between 1 and 4",
 		},
 		"invalid program super": {
 			program:   "super",
